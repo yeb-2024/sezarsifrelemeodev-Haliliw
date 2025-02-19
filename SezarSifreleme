@@ -6,7 +6,7 @@ public class SezarSifreleme extends JFrame {
     private JTextField mesajAlani;
     private JTextField anahtarAlani;
     private JTextArea sonucAlani;
-    
+
     public SezarSifreleme() {
         setTitle("Sezar Şifreleme Programı");
         setSize(400, 300);
@@ -39,5 +39,23 @@ public class SezarSifreleme extends JFrame {
         panel.add(new JScrollPane(sonucAlani));
 
         add(panel);
+    }
+
+    public static String sifrele(String mesaj, int anahtar) {
+        final String HARFLER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder sifreliMesaj = new StringBuilder();
+
+        for (char mevcutHarf : mesaj.toCharArray()) {
+            int indeks = HARFLER.indexOf(Character.toUpperCase(mevcutHarf));
+
+            if (indeks != -1) {
+                int yeniIndeks = (indeks + anahtar) % HARFLER.length();
+                char yeniHarf = HARFLER.charAt(yeniIndeks);
+                sifreliMesaj.append(Character.isLowerCase(mevcutHarf) ? Character.toLowerCase(yeniHarf) : yeniHarf);
+            } else {
+                sifreliMesaj.append(mevcutHarf);
+            }
+        }
+        return sifreliMesaj.toString();
     }
 }
