@@ -3,10 +3,41 @@ package org.example;
 import javax.swing.*;
 
 public class SezarSifreleme extends JFrame {
+    private JTextField mesajAlani;
+    private JTextField anahtarAlani;
+    private JTextArea sonucAlani;
+    
     public SezarSifreleme() {
         setTitle("Sezar Şifreleme Programı");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5, 2, 5, 5));
+
+        JLabel mesajLabel = new JLabel("Mesaj:");
+        mesajAlani = new JTextField();
+
+        JLabel anahtarLabel = new JLabel("Anahtar (0-25):");
+        anahtarAlani = new JTextField();
+
+        JButton sifreleButton = new JButton("Şifrele");
+        JButton cozButton = new JButton("Şifre Çöz");
+
+        sonucAlani = new JTextArea(3, 20);
+        sonucAlani.setEditable(false);
+        
+
+        panel.add(mesajLabel);
+        panel.add(mesajAlani);
+        panel.add(anahtarLabel);
+        panel.add(anahtarAlani);
+        panel.add(sifreleButton);
+        panel.add(cozButton);
+        panel.add(new JLabel("Sonuç:"));
+        panel.add(new JScrollPane(sonucAlani));
+
+        add(panel);
     }
 }
