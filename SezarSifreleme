@@ -27,7 +27,7 @@ public class SezarSifreleme extends JFrame {
 
         sonucAlani = new JTextArea(3, 20);
         sonucAlani.setEditable(false);
-        
+
 
         panel.add(mesajLabel);
         panel.add(mesajAlani);
@@ -39,6 +39,22 @@ public class SezarSifreleme extends JFrame {
         panel.add(new JScrollPane(sonucAlani));
 
         add(panel);
+    }
+    
+    private void islemYap(boolean sifrelemeYap) {
+        String mesaj = mesajAlani.getText();
+        int anahtar;
+
+        try {
+            anahtar = Integer.parseInt(anahtarAlani.getText());
+            if (anahtar < 0 || anahtar > 25) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Lütfen 0-25 arasında bir anahtar girin!", "Hata", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
     }
 
     public static String sifrele(String mesaj, int anahtar) {
