@@ -17,6 +17,8 @@ public class SezarSifreleme extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 5, 5));
 
+        panel.setBackground(new Color(255, 214, 214));
+
         JLabel mesajLabel = new JLabel("Mesaj:");
         mesajAlani = new JTextField();
 
@@ -25,6 +27,9 @@ public class SezarSifreleme extends JFrame {
 
         JButton sifreleButton = new JButton("Şifrele");
         JButton cozButton = new JButton("Şifre Çöz");
+
+        sifreleButton.setBackground(new Color(186, 156, 156));
+        cozButton.setBackground(new Color(156, 115, 115));
 
         sonucAlani = new JTextArea(3, 20);
         sonucAlani.setEditable(false);
