@@ -1,4 +1,12 @@
 package org.example;
 
-public class SezarSifreleme {
+import javax.swing.*;
+
+public class SezarSifreleme extends JFrame {
+    public SezarSifreleme() {
+        setTitle("Sezar Şifreleme Programı");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
 }
